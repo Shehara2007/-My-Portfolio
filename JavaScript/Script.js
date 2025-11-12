@@ -1,139 +1,101 @@
-    document.addEventListener('DOMContentLoaded', () => {
-    const previewDiv = document.querySelector('.project-preview');
-    const previewImg = document.getElementById('projectPreviewImage');
-    const projectCards = document.querySelectorAll('.project-card');
+
+    document.addEventListener("DOMContentLoaded", () => {
+        /* ------------------ 🌸 NAV HAMBURGER MENU ------------------ */
+        const hamburger = document.getElementById("hamburger");
+        const navMenu = document.getElementById("navMenu");
+
+        function openMenu() {
+            hamburger.classList.add("active");
+            navMenu.classList.add("active");
+            hamburger.setAttribute("aria-expanded", "true");
+        }
+
+        function closeMenu() {
+            hamburger.classList.remove("active");
+            navMenu.classList.remove("active");
+            hamburger.setAttribute("aria-expanded", "false");
+        }
+
+        hamburger.addEventListener("click", (e) => {
+            e.stopPropagation();
+            navMenu.classList.contains("active") ? closeMenu() : openMenu();
+        });
+
+        document.querySelectorAll(".nav-menu a").forEach(link => {
+            link.addEventListener("click", closeMenu);
+        });
+
+        document.addEventListener("click", (e) => {
+            if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
+                closeMenu();
+            }
+        });
+
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") closeMenu();
+        });
+
+    /* ------------------ 🖼️ PROJECT IMAGE PREVIEW ------------------ */
+    const previewDiv = document.querySelector(".project-preview");
+    const previewImg = document.getElementById("projectPreviewImage");
+    const projectCards = document.querySelectorAll(".project-card");
 
     projectCards.forEach(card => {
-    card.addEventListener('mouseenter', () => {
-    const imgSource = card.getAttribute('data-preview-img');
+    card.addEventListener("mouseenter", () => {
+    const imgSrc = card.getAttribute("data-preview");
+    previewImg.src = imgSrc;
+    previewDiv.style.opacity = "1";
+});
 
-    // Only show and update if an image source exists
-    if (imgSource) {
-    previewImg.src = imgSource;
-    previewDiv.style.opacity = '1';
-    previewDiv.style.transform = 'translate(-50%, -50%) scale(1)';
-} else {
-    // Hide if no image is defined for this card
-    previewDiv.style.opacity = '0';
-    previewDiv.style.transform = 'translate(-50%, -50%) scale(0.8)';
+    card.addEventListener("mouseleave", () => {
+    previewDiv.style.opacity = "0";
+});
+
+    card.addEventListener("mousemove", (e) => {
+    previewDiv.style.left = e.pageX + 15 + "px";
+    previewDiv.style.top = e.pageY + 15 + "px";
+});
+});
+
+
+    /* ------------------ 📩 CONTACT FORM SUBMIT ------------------ */
+    const contactForm = document.querySelector("#contactForm");
+    if (contactForm) {
+    contactForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    alert("Your message has been sent successfully!");
+    contactForm.reset();
+});
+}
+
+
+    /* ------------------ 🌊 BUTTON RIPPLE EFFECT ------------------ */
+    document.querySelectorAll(".btn, .button").forEach(btn => {
+    btn.addEventListener("click", function (e) {
+    const ripple = document.createElement("span");
+    ripple.classList.add("ripple");
+    this.appendChild(ripple);
+
+    const rect = this.getBoundingClientRect();
+    ripple.style.left = e.clientX - rect.left + "px";
+    ripple.style.top = e.clientY - rect.top + "px";
+
+    setTimeout(() => ripple.remove(), 600);
+});
+});
+
+
+    /* ------------------ 👁️ SCROLL ANIMATION (FADE IN) ------------------ */
+    const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+    if (entry.isIntersecting) {
+    entry.target.classList.add("show");
 }
 });
-
-    card.addEventListener('mouseleave', () => {
-    // Hide the preview when the mouse leaves the card
-    previewDiv.style.opacity = '0';
-    previewDiv.style.transform = 'translate(-50%, -50%) scale(0.8)';
-});
-});
 });
 
-    // Form submission handler
-    document.querySelector('.contact-form').addEventListener('submit', function(e) {
-    e.preventDefault();
+    const hiddenElements = document.querySelectorAll(".hidden");
+    hiddenElements.forEach(el => observer.observe(el));
 
-    const btn = this.querySelector('.submit-btn');
-    const originalText = btn.innerHTML;
-
-    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-    btn.style.pointerEvents = 'none';
-
-    // Simulate form submission
-    setTimeout(() => {
-    btn.innerHTML = '<i class="fas fa-check"></i> Sent Successfully!';
-    btn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
-
-    setTimeout(() => {
-    btn.innerHTML = originalText;
-    btn.style.background = '';
-    btn.style.pointerEvents = '';
-    this.reset();
-}, 2000);
-}, 1500);
 });
-
-    // Add focus animations
-    const inputs = document.querySelectorAll('.form-input, .form-textarea');
-    inputs.forEach(input => {
-    input.addEventListener('focus', function() {
-        this.parentElement.style.transform = 'scale(1.02)';
-    });
-
-    input.addEventListener('blur', function() {
-    this.parentElement.style.transform = 'scale(1)';
-});
-});
-
-
-    document.getElementById("submit").addEventListener("click", function() {
-    const name = document.getElementById("yourName").value;
-    const email = document.getElementById("yourEmail").value;
-    const subject = document.getElementById("yourSubject").value;
-    const message = document.getElementById("yourMessage").value;
-
-    // Your WhatsApp number (Sri Lanka format)
-    const whatsappNumber = "94775482007"; // 94 + your number
-
-    // Format message for WhatsApp
-    const whatsappMessage =
-    `*New Contact Form Submission*%0A%0A` +
-    `*Name:* ${encodeURIComponent(name)}%0A` +
-    `*Email:* ${encodeURIComponent(email)}%0A` +
-    `*Subject:* ${encodeURIComponent(subject)}%0A%0A` +
-    `*Message:*%0A${encodeURIComponent(message)}`;
-
-    // Create WhatsApp chat link
-    const whatsappLink = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
-
-    // Open WhatsApp in a new tab
-    window.open(whatsappLink, '_blank');
-});
-
-    document.getElementById("reset").addEventListener("click", function() {
-    document.getElementById("contactForm").reset();
-});
-
-// Skills Animation Script
-    const skillItems = document.querySelectorAll('.skill-item');
-
-    const skillObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const item = entry.target;
-            const percentage = item.dataset.percentage;
-            const targetPercentage = item.dataset.target || percentage;
-            const circle = item.querySelector('.circle-progress');
-
-            // No need for percentageText since it's removed
-
-            const circumference = 2 * Math.PI * 70;
-
-            const targetOffset = circumference - (targetPercentage / 100 * circumference);
-            circle.style.setProperty('--dash-offset', targetOffset);
-
-            item.classList.add('animated');
-
-            if (item.dataset.target) {
-                setTimeout(() => {
-                    item.classList.add('mistake');
-                    // No percentage text update needed here
-                }, 2000);
-            }
-
-            skillObserver.unobserve(item);
-        }
-    });
-}, { threshold: 0.5 });
-
-    skillItems.forEach(item => skillObserver.observe(item));
-
-    // Click ripple effect
-    document.addEventListener('click', function(e) {
-    const ripple = document.createElement('div');
-    ripple.classList.add('click-ripple');
-    ripple.style.left = (e.clientX - 10) + 'px';
-    ripple.style.top = (e.clientY - 10) + 'px';
-    document.body.appendChild(ripple);
-    setTimeout(() => ripple.remove(), 800);
-});
-
 
