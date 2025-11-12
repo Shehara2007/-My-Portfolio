@@ -192,7 +192,7 @@ header {
 
 
 
-/* Hero Section */
+/* ---------- Base Hero Section (keep as your version) ---------- */
 .hero {
     display: flex;
     justify-content: space-between;
@@ -200,11 +200,10 @@ header {
     padding: 60px 5% 60px 10%;
     min-height: 90vh;
     position: relative;
-    background: linear-gradient(135deg, black, black); /* soft pastel purple tone */
+    background: linear-gradient(135deg, black, black);
     overflow: hidden;
 }
 
-/* Hero Image Container */
 .hero-image {
     flex: 1;
     position: relative;
@@ -215,7 +214,6 @@ header {
     z-index: 2;
 }
 
-/* Hero Image Animation */
 .hero-image img {
     width: 1000px;
     height: 600px;
@@ -224,43 +222,23 @@ header {
     z-index: 1;
     opacity: 0;
     transform: scale(0.9);
-    border-radius: 20px; /* optional: smooth edges */
+    border-radius: 20px;
     animation: fadeZoom 1.8s ease-out forwards, smoothFloat 6s ease-in-out 1.8s infinite;
 }
 
-/* Fade and Zoom In */
-@keyframes fadeZoom {
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-/* Smooth Floating Motion */
+/* Animations */
+@keyframes fadeZoom { to { opacity: 1; transform: scale(1); } }
 @keyframes smoothFloat {
-    0%, 100% {
-        transform: translateY(0) translateX(0) rotate(0deg);
-    }
-    25% {
-        transform: translateY(-15px) translateX(8px) rotate(0.5deg);
-    }
-    50% {
-        transform: translateY(-8px) translateX(-8px) rotate(-0.5deg);
-    }
-    75% {
-        transform: translateY(-20px) translateX(5px) rotate(0.3deg);
-    }
+    0%,100%{transform:translateY(0)translateX(0)rotate(0deg);}
+    25%{transform:translateY(-15px)translateX(8px)rotate(0.5deg);}
+    50%{transform:translateY(-8px)translateX(-8px)rotate(-0.5deg);}
+    75%{transform:translateY(-20px)translateX(5px)rotate(0.3deg);}
 }
 
-/* Remove any glowing/lightning pseudo-elements */
 .hero-image::before,
 .hero-image::after {
     content: none !important;
-    background: none !important;
-    box-shadow: none !important;
-    animation: none !important;
 }
-
 
 .hero-text {
     flex: 1;
@@ -289,24 +267,16 @@ header {
     vertical-align: bottom;
     font-style: italic;
     font-family: 'Dancing Script', cursive;
-
-    /* total duration 5.5s: 2.5s typing + 3s hold */
     animation: typing 5.5s steps(15, end) infinite, blink 0.9s step-end infinite alternate;
 }
 
-/* Typing animation with 3-second hold at full text */
 @keyframes typing {
     0% { width: 0ch; }
     45% { width: 15ch; }
     100% { width: 15ch; }
 }
+@keyframes blink { 50% { border-color: transparent; } }
 
-/* Cursor blinking */
-@keyframes blink {
-    50% { border-color: transparent; }
-}
-
-/* Gradient underline */
 .hero-text h1::after {
     content: '';
     display: block;
@@ -317,7 +287,6 @@ header {
     border-radius: 2px;
 }
 
-/* Highlight color for "shehara" */
 .hero-text h1 span {
     font-size: 50px;
     color: #A855F7;
@@ -325,7 +294,6 @@ header {
     font-family: 'Dancing Script', cursive;
     letter-spacing: 1px;
 }
-
 
 .hero-text p {
     margin-bottom: 35px;
@@ -357,7 +325,6 @@ header {
     animation: fadeInUp 1s ease-out 0.6s both;
 }
 
-/* Light shine effect */
 .btn::before {
     content: '';
     position: absolute;
@@ -368,16 +335,10 @@ header {
     background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
     transition: left 0.5s ease;
 }
-
-/* When hover: shine slides across */
-.btn:hover::before {
-    left: 100%;
-}
-
-/* Hover color change */
+.btn:hover::before { left: 100%; }
 .btn:hover {
-    background: #fff; /* change background to white */
-    color: #000; /* text becomes black */
+    background: #fff;
+    color: #000;
     transform: translateY(-3px);
     box-shadow: 0 10px 30px rgba(192, 132, 252, 0.4);
 }
@@ -404,7 +365,6 @@ header {
     position: relative;
     overflow: hidden;
 }
-
 .social-links a::before {
     content: '';
     position: absolute;
@@ -416,55 +376,84 @@ header {
     transition: left 0.3s ease;
     z-index: -1;
 }
-
-.social-links a:hover::before {
-    left: 0;
-}
-
+.social-links a:hover::before { left: 0; }
 .social-links a:hover {
     transform: translateY(-5px) scale(1.05);
     box-shadow: 0 10px 25px rgba(192, 96, 255, 0.4);
     color: #000;
 }
 
-/* Animations */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
+/* ---------- Responsive Section ---------- */
+@media (max-width: 900px) {
+    .hero {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 80px 6% 60px;
+        text-align: center;
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+
+    .hero-image {
+        order: -1;
+        min-width: unset;
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .hero-image img {
+        width: 90%;
+        height: auto;
+        max-width: 500px;
+    }
+
+    .hero-text {
+        padding-left: 0;
+        min-width: unset;
+    }
+
+    .hero-text h3 {
+        font-size: 48px;
+    }
+
+    .hero-text h1 {
+        font-size: 34px;
+        white-space: normal;
+    }
+
+    .hero-text h1 span {
+        font-size: 42px;
+    }
+
+    .hero-text p {
+        font-size: 16px;
+        margin: 20px 0 30px;
+    }
+
+    .btn {
+        margin: 20px 0 30px;
+    }
+
+    .social-links {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .social-links a {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
     }
 }
 
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0) rotate(0deg);
-    }
-    33% {
-        transform: translateY(-10px) rotate(1deg);
-    }
-    66% {
-        transform: translateY(5px) rotate(-1deg);
-    }
+@media (max-width: 480px) {
+    .hero-text h3 { font-size: 40px; }
+    .hero-text h1 { font-size: 28px; }
+    .hero-text h1 span { font-size: 34px; }
+    .hero-text p { font-size: 15px; }
+    .hero-image img { width: 100%; max-width: 420px; }
+    .social-links a { width: 45px; height: 45px; font-size: 18px; }
 }
 
-/* Background Effects */
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background:
-            radial-gradient(circle at 20% 80%, rgba(192, 132, 252, 0.1) 0%, transparent 50%),
-            radial-gradient(circle at 80% 20%, rgba(168, 85, 247, 0.1) 0%, transparent 50%);
-    pointer-events: none;
-    z-index: -1;
-}
 
 /* About Section */
 .about-section {
