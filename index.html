@@ -7,15 +7,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
-  <script src="JavaScript/Script.js"></script>
   <link rel="stylesheet" href="CSS/style.css">
+
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
 
 <header>
   <div class="logo">SM</div>
-  <nav>
-    <ul>
+  <nav class="main-nav">
+    <ul class="nav-menu">
       <li><a href="#">Home</a></li>
       <li><a href="#about-section">About</a></li>
       <li><a href="#gallery">Gallery</a></li>
@@ -25,6 +26,9 @@
       <li><a href="#assignments">Assignments</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <div class="menu-toggle" id="menuToggle">
+      <i class="fas fa-ellipsis-v"></i>
+    </div>
   </nav>
 </header>
 
@@ -58,26 +62,20 @@
   </div>
 </section>
 
-<!-- About Section -->
 <section class="about-section" id="about-section">
   <div class="about-container">
-    <!-- Section Title -->
     <h2 class="section-title">AB<span>OUT</span> Me,</h2>
 
-    <!-- Content Grid -->
     <div class="about-content">
-      <!-- Image Section -->
       <div class="about-image">
         <div class="image-wrapper">
-          <div class="image-placeholder">
+          <div class="image-placeholder" style="height: 500px;">
             <img src="assest/Images/WhatsApp Image 2025-11-07 at 14.58.38_c46086f9.jpg" alt="my photo">
           </div>
         </div>
       </div>
 
-      <!-- Info Section -->
       <div class="about-info">
-        <!-- Personal Info -->
         <div class="personal-info">
           <h3 class="info-title">Personal Info,</h3>
           <ul class="info-list">
@@ -88,7 +86,6 @@
           </ul>
         </div>
 
-        <!-- Description -->
         <div class="container">
           <div class="about-card">
             <div class="about-text">
@@ -368,11 +365,10 @@
   </div>
 </section>
 
-<!-- Skills Section with Circular Progress -->
 <section class="skills-section" id="skills">
   <div class="container">
     <div class="section-header">
-      <h1 class="section-title">Skills,</h1>
+      <h1 class="section-title">SKILLS</h1>
     </div>
 
     <svg style="position: absolute; width: 0; height: 0;">
@@ -585,17 +581,12 @@
 
     <div class="contact-content">
 
-      <!-- LEFT SIDE: IMAGE, INFO & SOCIAL OVERLAY -->
       <div class="contact-left">
         <div class="contact-image-wrapper">
-          <!-- Background Image -->
           <img src="assest/Images/WhatsApp Image 2025-09-01 at 15.08.38_e3275d85.jpg" alt="Profile Background">
 
           <div class="info-overlay">
-            <!-- The title is removed as per the image layout -->
-
             <div class="contact-info">
-              <!-- INFO ITEM: Call Me -->
               <div class="info-item">
                 <div class="info-icon">
                   <i class="fas fa-phone"></i>
@@ -606,7 +597,6 @@
                 </div>
               </div>
 
-              <!-- INFO ITEM: Mail Me -->
               <div class="info-item">
                 <div class="info-icon">
                   <i class="fas fa-envelope"></i>
@@ -617,7 +607,6 @@
                 </div>
               </div>
 
-              <!-- INFO ITEM: Address Point -->
               <div class="info-item">
                 <div class="info-icon">
                   <i class="fas fa-map-marker-alt"></i>
@@ -629,12 +618,9 @@
               </div>
             </div>
 
-            <!-- Separator Line -->
             <div class="info-separator"></div>
 
-            <!-- Social Icons (Internal to the contact-left layout) -->
             <div class="contact-social-icons">
-              <!-- Using the social icon structure provided in the previous turn's social banner -->
               <a href="#" class="social-icon" title="Facebook"> <i class="fab fa-facebook-f"></i> </a>
               <a href="#" class="social-icon" title="LinkedIn"> <i class="fab fa-linkedin-in"></i> </a>
               <a href="#" class="social-icon" title="Twitter/X"> <i class="fab fa-x-twitter"></i> </a>
@@ -644,9 +630,7 @@
         </div>
       </div>
 
-      <!-- RIGHT SIDE: CONTACT FORM (Simplified and adapted to new field names) -->
       <div class="contact-right">
-        <!-- CONTACT FORM -->
         <form id="contactForm">
           <div>
             <input type="text" id="yourName" name="from_name" placeholder="Your Name..." required class="form-input">
@@ -661,11 +645,9 @@
             <textarea id="yourMessage" name="message" placeholder="Your Message..." required class="form-textarea"></textarea>
           </div>
           <div>
-            <!-- Submit button using the styled #submit ID -->
             <button type="submit" id="submit">
               Send Message
             </button>
-            <!-- Reset button -->
             <input type="reset" id="reset" value="RESET">
           </div>
         </form>
@@ -689,7 +671,7 @@
       <a href="https://twitter.com" target="_blank" aria-label="Twitter">
         <i class="fab fa-twitter"></i>
       </a>
-      <a href="https://www.instagram.com/she._ha._ra." target="_blank" aria-label="Instagram">
+      <a href="https://www.instagram.com/_she._ha._ra._" target="_blank" aria-label="Instagram">
         <i class="fab fa-instagram"></i>
       </a>
     </div>
@@ -697,6 +679,5 @@
   </div>
 </footer>
 
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 
-</body>
-</html>

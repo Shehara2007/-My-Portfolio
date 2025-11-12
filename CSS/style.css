@@ -81,6 +81,15 @@ nav ul li a:hover::after {
     width: 100%;
 }
 
+/* Added: Mobile Toggle Icon Styling (Hidden on desktop) */
+.menu-toggle {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #fff;
+}
+
+
 /* Hero Section */
 .hero {
     display: flex;
@@ -180,14 +189,14 @@ nav ul li a:hover::after {
     font-family: 'Dancing Script', cursive;
 
     /* total duration 5.5s: 2.5s typing + 3s hold */
-    animation: typing 5.5s steps(14, end) infinite, blink 0.9s step-end infinite alternate;
+    animation: typing 5.5s steps(15, end) infinite, blink 0.9s step-end infinite alternate;
 }
 
 /* Typing animation with 3-second hold at full text */
 @keyframes typing {
     0% { width: 0ch; }
-    45% { width: 14ch; }
-    100% { width: 14ch; }
+    45% { width: 15ch; }
+    100% { width: 15ch; }
 }
 
 /* Cursor blinking */
@@ -206,7 +215,7 @@ nav ul li a:hover::after {
     border-radius: 2px;
 }
 
-/* 🎨 Highlight color for "shehara" */
+/* Highlight color for "shehara" */
 .hero-text h1 span {
     font-size: 50px;
     color: #A855F7;
@@ -498,7 +507,8 @@ body::before {
 
 .about-content {
     display: grid;
-    grid-template-columns: 400px 1fr;
+    /* Adjusted grid to allow for a larger image */
+    grid-template-columns: 500px 1fr; /* Increased first column width for the image */
     gap: 80px;
     align-items: start;
 }
@@ -506,6 +516,7 @@ body::before {
 .about-image {
     position: relative;
     animation: fadeInLeft 1s ease-out 0.3s both;
+    width: 100%; /* Ensure the image section takes its full grid column width */
 }
 
 .image-wrapper {
@@ -543,15 +554,17 @@ body::before {
 
 .about-image img {
     width: 100%;
-    height: auto;
+    height: 100%; /* Make image fill the placeholder */
     display: block;
     border-radius: 16px;
     transition: all 0.3s ease;
+    object-fit: cover; /* Ensures the image covers the area without distorting */
+    object-position: center; /* Centers the image within the container */
 }
 
 .image-placeholder {
     width: 100%;
-    height: 500px;
+    height: 650px; /* Increased height to make the photo larger */
     background: linear-gradient(135deg, #422948, #593862);
     border-radius: 16px;
     display: flex;
@@ -909,13 +922,13 @@ body::before {
     font-size: 0.9rem;
 }
 
-       /* Projects Section */
-   .projects-section {
-       min-height: 100vh;
-       padding: 80px 60px;
-       position: relative;
-       overflow: hidden;
-   }
+/* Projects Section */
+.projects-section {
+    min-height: 100vh;
+    padding: 80px 60px;
+    position: relative;
+    overflow: hidden;
+}
 
 .projects-section::before {
     content: '';
@@ -1620,17 +1633,6 @@ body {
 
 .assignment-btn:hover .assignment-arrow {
     transform: translateX(10px);
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Poppins', sans-serif;
-    background: #0a0a0a;
 }
 
 * {
