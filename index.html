@@ -7,6 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <script src="JavaScript/Script.js"></script>
   <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
@@ -230,8 +231,12 @@
   <div class="projects-container">
     <h2 class="section-title">PRO<span>JECTS</span></h2>
 
+    <div class="project-preview">
+      <img id="projectPreviewImage" src="" alt="Project Screenshot Preview">
+    </div>
+
     <div class="projects-grid">
-      <div class="project-card">
+      <div class="project-card" data-project-id="1">
         <div class="card-header">
           <div class="card-title">Library Management System</div>
           <div class="card-subtitle"></div>
@@ -254,17 +259,17 @@
 
         <div class="card-footer">
           <div class="project-icons">
-            <div class="project-icon" title="View Project">
+            <a href="#" class="project-icon" title="View Project">
               <i class="fas fa-eye"></i>
-            </div>
-            <div class="project-icon" title="GitHub">
+            </a>
+            <a href="#" class="project-icon" title="GitHub">
               <i class="fab fa-github"></i>
-            </div>
+            </a>
           </div>
         </div>
       </div>
 
-      <div class="project-card">
+      <div class="project-card" data-project-id="2" data-preview-img="assest/Images/Science_Lab_Login.jpg">
         <div class="card-header">
           <div class="card-title">Science Lab Management System (Layered)</div>
         </div>
@@ -286,17 +291,17 @@
 
         <div class="card-footer">
           <div class="project-icons">
-            <div class="project-icon" title="View Project">
+            <a href="#" class="project-icon" title="View Project">
               <i class="fas fa-eye"></i>
-            </div>
-            <div class="project-icon" title="GitHub">
+            </a>
+            <a href="https://github.com/Shehara2007/First_Sem_Final_Layered_Project/tree/master/src/main/java/lk/ijse/first_sem_final_layered_project" target="_blank" class="project-icon" title="GitHub">
               <i class="fab fa-github"></i>
-            </div>
+            </a>
           </div>
         </div>
       </div>
 
-      <div class="project-card">
+      <div class="project-card" data-project-id="3" data-preview-img="assest/Images/Science_Lab_Login.jpg">
         <div class="card-header">
           <div class="card-title">Science Lab Management System (MVC)</div>
         </div>
@@ -318,23 +323,23 @@
 
         <div class="card-footer">
           <div class="project-icons">
-            <div class="project-icon" title="View Project">
+            <a href="#" class="project-icon" title="View Project">
               <i class="fas fa-eye"></i>
-            </div>
-            <div class="project-icon" title="GitHub">
+            </a>
+            <a href="https://github.com/Shehara2007/SM-Science-lab/tree/main/src/main/java/lk/ijse/sciencelab" target="_blank" class="project-icon" title="GitHub">
               <i class="fab fa-github"></i>
-            </div>
+            </a>
           </div>
         </div>
       </div>
 
-      <div class="project-card">
+      <div class="project-card" data-project-id="4" data-preview-img="assest/Images/Science_Lab_Login.jpg">
         <div class="card-header">
-          <div class="card-title">Science Lab Management System (Layered & ORM)</div>
+          <div class="card-title">Driving School Management System (ORM)</div>
         </div>
 
         <div class="card-description">
-          This is my first--semester final project built using the MVC architecture. It includes user resources, equipment reservations, and experiment scheduling. It for better structure and development.ship
+          A fully featured Driving School Management System implementing *Object-Relational Mapping (ORM)* to handle student registration, instructor assignments, and lesson scheduling. Focuses on efficient data persistence and modular design.
         </div>
 
         <div class="tech-stack">
@@ -350,12 +355,12 @@
 
         <div class="card-footer">
           <div class="project-icons">
-            <div class="project-icon" title="View Project">
+            <a href="#" class="project-icon" title="View Project">
               <i class="fas fa-eye"></i>
-            </div>
-            <div class="project-icon" title="GitHub">
+            </a>
+            <a href="https://github.com/Shehara2007/Driving_School_ORM-final" target="_blank" class="project-icon" title="GitHub">
               <i class="fab fa-github"></i>
-            </div>
+            </a>
           </div>
         </div>
       </div>
@@ -370,6 +375,15 @@
       <h1 class="section-title">Skills,</h1>
     </div>
 
+    <svg style="position: absolute; width: 0; height: 0;">
+      <defs>
+        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#a855f7;stop-opacity:1" />
+          <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
+        </linearGradient>
+      </defs>
+    </svg>
+
     <div class="skills-grid">
       <div class="skill-item" data-percentage="95" data-target="98">
         <div class="circular-progress">
@@ -383,7 +397,7 @@
           <div class="dot-indicator"></div>
         </div>
         <div class="skill-percentage">95%</div>
-        <div class="mistake-tooltip">Small mistake cost me 3%! </div>
+        <div class="mistake-tooltip">Small mistake cost me 3%!</div>
       </div>
 
       <div class="skill-item" data-percentage="98">
@@ -412,7 +426,7 @@
           <div class="dot-indicator"></div>
         </div>
         <div class="skill-percentage">90%</div>
-        <div class="mistake-tooltip">One typo ruined it! </div>
+        <div class="mistake-tooltip">One typo ruined it!</div>
       </div>
 
       <div class="skill-item" data-percentage="98">
@@ -455,7 +469,7 @@
           <div class="dot-indicator"></div>
         </div>
         <div class="skill-percentage">85%</div>
-        <div class="mistake-tooltip">Missed the deadline! </div>
+        <div class="mistake-tooltip">Missed the deadline!</div>
       </div>
 
       <div class="skill-item" data-percentage="92">
@@ -474,6 +488,62 @@
     </div>
   </div>
 </section>
+
+<script>
+  // Animate circular progress bars
+  const skillItems = document.querySelectorAll('.skill-item');
+
+  const animateSkills = () => {
+    skillItems.forEach((item, index) => {
+      const percentage = parseInt(item.getAttribute('data-percentage'));
+      const target = parseInt(item.getAttribute('data-target')) || percentage;
+      const circle = item.querySelector('.circle-progress');
+      const percentageText = item.querySelector('.skill-percentage');
+
+      // Calculate stroke offset
+      const radius = 70;
+      const circumference = 2 * Math.PI * radius;
+      const offset = circumference - (percentage / 100) * circumference;
+
+      circle.style.setProperty('--dash-offset', offset);
+
+      setTimeout(() => {
+        item.classList.add('animated');
+
+        // Animate percentage counter
+        let current = 0;
+        const increment = percentage / 50;
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= percentage) {
+            current = percentage;
+            clearInterval(timer);
+
+            // Check if it's a mistake (has data-target)
+            if (target > percentage) {
+              setTimeout(() => {
+                item.classList.add('mistake');
+              }, 500);
+            }
+          }
+          percentageText.textContent = Math.round(current) + '%';
+        }, 40);
+      }, index * 100);
+    });
+  };
+
+  // Intersection Observer for scroll animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateSkills();
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+
+  observer.observe(document.querySelector('.skills-section'));
+</script>
 
 
 <section class="assignments-section" id="assignments">
@@ -513,88 +583,91 @@
   <div class="contact-container">
     <h2 class="section-title">CO<span>NTACT</span></h2>
 
-<!--    <div class="contact-content">-->
-<!--      <div class="contact-left">-->
-<!--        <div class="contact-image-bg">-->
-<!--          <img src="assest/Images/MY%20PHOTO%20DESIGN.jpg" alt="Profile Photo">-->
-<!--        </div>-->
+    <div class="contact-content">
 
-        <div class="contact-info">
-          <div class="info-item">
-            <div class="info-icon">
-              <i class="fas fa-phone"></i>
-            </div>
-            <div class="info-details">
-              <div class="info-label">Call Me:</div>
-              <div class="info-value">+94 77 548 2007</div>
-            </div>
-          </div>
+      <!-- LEFT SIDE: IMAGE, INFO & SOCIAL OVERLAY -->
+      <div class="contact-left">
+        <div class="contact-image-wrapper">
+          <!-- Background Image -->
+          <img src="assest/Images/WhatsApp Image 2025-09-01 at 15.08.38_e3275d85.jpg" alt="Profile Background">
 
-          <div class="info-item">
-            <div class="info-icon">
-              <i class="fas fa-envelope"></i>
-            </div>
-            <div class="info-details">
-              <div class="info-label">Mail Me:</div>
-              <div class="info-value">sheharamalith1@gmail.com</div>
-            </div>
-          </div>
+          <div class="info-overlay">
+            <!-- The title is removed as per the image layout -->
 
-          <div class="info-item">
-            <div class="info-icon">
-              <i class="fas fa-map-marker-alt"></i>
+            <div class="contact-info">
+              <!-- INFO ITEM: Call Me -->
+              <div class="info-item">
+                <div class="info-icon">
+                  <i class="fas fa-phone"></i>
+                </div>
+                <div class="info-details">
+                  <div class="info-label">Call Me:</div>
+                  <div class="info-value">+94 77 548 2007</div>
+                </div>
+              </div>
+
+              <!-- INFO ITEM: Mail Me -->
+              <div class="info-item">
+                <div class="info-icon">
+                  <i class="fas fa-envelope"></i>
+                </div>
+                <div class="info-details">
+                  <div class="info-label">Mail Me:</div>
+                  <div class="info-value">sheharamalith1@gmail.com</div>
+                </div>
+              </div>
+
+              <!-- INFO ITEM: Address Point -->
+              <div class="info-item">
+                <div class="info-icon">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="info-details">
+                  <div class="info-label">Address Point:</div>
+                  <div class="info-value">201/8 3rd lane Pallimulla,<br>Panadura.</div>
+                </div>
+              </div>
             </div>
-            <div class="info-details">
-              <div class="info-label">Address Point:</div>
-              <div class="info-value">201/8 3rd lane Pallimulla,<br>Panadura.</div>
+
+            <!-- Separator Line -->
+            <div class="info-separator"></div>
+
+            <!-- Social Icons (Internal to the contact-left layout) -->
+            <div class="contact-social-icons">
+              <!-- Using the social icon structure provided in the previous turn's social banner -->
+              <a href="#" class="social-icon" title="Facebook"> <i class="fab fa-facebook-f"></i> </a>
+              <a href="#" class="social-icon" title="LinkedIn"> <i class="fab fa-linkedin-in"></i> </a>
+              <a href="#" class="social-icon" title="Twitter/X"> <i class="fab fa-x-twitter"></i> </a>
+              <a href="#" class="social-icon" title="Instagram"> <i class="fab fa-instagram"></i> </a>
             </div>
           </div>
         </div>
+      </div>
 
-<!--        <div class="contact-divider"></div>-->
-
-<!--        <div class="contact-social">-->
-<!--          <a href="https://web.facebook.com/shehara.malithi.2025" target="_blank" class="social-icon" title="Facebook">-->
-<!--            <i class="fa-brands fa-facebook-f"></i>-->
-<!--          </a>-->
-<!--          <a href="https://www.linkedin.com/in/shehara-malithi-48b803397" target="_blank" class="social-icon" title="LinkedIn">-->
-<!--            <i class="fa-brands fa-linkedin-in"></i>-->
-<!--          </a>-->
-<!--          <a href="https://github.com/Shehara2007" target="_blank" class="social-icon" title="GitHub">-->
-<!--            <i class="fa-brands fa-github"></i>-->
-<!--          </a>-->
-<!--          <a href="https://twitter.com" target="_blank" class="social-icon" title="Twitter (X)">-->
-<!--            <i class="fa-brands fa-x-twitter"></i>-->
-<!--          </a>-->
-<!--          <a href="https://www.instagram.com/_she._ha._ra._" target="_blank" class="social-icon" title="Instagram">-->
-<!--            <i class="fa-brands fa-instagram"></i>-->
-<!--          </a>-->
-<!--        </div>-->
-<!--      </div>-->
-
+      <!-- RIGHT SIDE: CONTACT FORM (Simplified and adapted to new field names) -->
       <div class="contact-right">
-        <form class="contact-form">
-          <div class="form-row">
-            <div class="form-group">
-              <input type="text" class="form-input" placeholder="Your Name..." required>
-            </div>
-            <div class="form-group">
-              <input type="email" class="form-input" placeholder="Your Email..." required>
-            </div>
+        <!-- CONTACT FORM -->
+        <form id="contactForm">
+          <div>
+            <input type="text" id="yourName" name="from_name" placeholder="Your Name..." required class="form-input">
           </div>
-
-          <div class="form-group">
-            <input type="text" class="form-input" placeholder="Your Subject..." required>
+          <div>
+            <input type="email" id="yourEmail" name="user_email" placeholder="Your Email..." required class="form-input">
           </div>
-
-          <div class="form-group">
-            <textarea class="form-textarea" placeholder="Your Message..." required></textarea>
+          <div>
+            <input type="text" id="yourSubject" name="subject" placeholder="Your Subject..." required class="form-input">
           </div>
-
-          <button type="submit" class="submit-btn">
-            Send Message
-            <i class="fas fa-paper-plane"></i>
-          </button>
+          <div>
+            <textarea id="yourMessage" name="message" placeholder="Your Message..." required class="form-textarea"></textarea>
+          </div>
+          <div>
+            <!-- Submit button using the styled #submit ID -->
+            <button type="submit" id="submit">
+              Send Message
+            </button>
+            <!-- Reset button -->
+            <input type="reset" id="reset" value="RESET">
+          </div>
         </form>
       </div>
     </div>
@@ -616,59 +689,14 @@
       <a href="https://twitter.com" target="_blank" aria-label="Twitter">
         <i class="fab fa-twitter"></i>
       </a>
-      <a href="https://www.instagram.com/_she._ha._ra._" target="_blank" aria-label="Instagram">
+      <a href="https://www.instagram.com/she._ha._ra." target="_blank" aria-label="Instagram">
         <i class="fab fa-instagram"></i>
       </a>
     </div>
-    <p>&copy; 2025 Portfolio. All rights reserved.</p>
+    <p> _2025 Portfolio. @Shehara_malithi_</p>
   </div>
 </footer>
 
-<script>
-  // Skills Animation Script
-  const skillItems = document.querySelectorAll('.skill-item');
-
-  const skillObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const item = entry.target;
-        const percentage = item.dataset.percentage;
-        const targetPercentage = item.dataset.target || percentage;
-        const circle = item.querySelector('.circle-progress');
-
-        // No need for percentageText since it's removed
-
-        const circumference = 2 * Math.PI * 70;
-
-        const targetOffset = circumference - (targetPercentage / 100 * circumference);
-        circle.style.setProperty('--dash-offset', targetOffset);
-
-        item.classList.add('animated');
-
-        if (item.dataset.target) {
-          setTimeout(() => {
-            item.classList.add('mistake');
-            // No percentage text update needed here
-          }, 2000);
-        }
-
-        skillObserver.unobserve(item);
-      }
-    });
-  }, { threshold: 0.5 });
-
-  skillItems.forEach(item => skillObserver.observe(item));
-
-  // Click ripple effect
-  document.addEventListener('click', function(e) {
-    const ripple = document.createElement('div');
-    ripple.classList.add('click-ripple');
-    ripple.style.left = (e.clientX - 10) + 'px';
-    ripple.style.top = (e.clientY - 10) + 'px';
-    document.body.appendChild(ripple);
-    setTimeout(() => ripple.remove(), 800);
-  });
-</script>
 
 </body>
 </html>
