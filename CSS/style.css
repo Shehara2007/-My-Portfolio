@@ -267,13 +267,13 @@ header {
     vertical-align: bottom;
     font-style: italic;
     font-family: 'Dancing Script', cursive;
-    animation: typing 5.5s steps(15, end) infinite, blink 0.9s step-end infinite alternate;
+    animation: typing 5.5s steps(18, end) infinite, blink 0.9s step-end infinite alternate;
 }
 
 @keyframes typing {
     0% { width: 0ch; }
-    45% { width: 15ch; }
-    100% { width: 15ch; }
+    45% { width: 18ch; }
+    100% { width: 18ch; }
 }
 @keyframes blink { 50% { border-color: transparent; } }
 
